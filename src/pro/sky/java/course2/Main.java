@@ -21,7 +21,7 @@ public class Main {
         List<Integer> listOfOddNumbers = new ArrayList<>();
         for (int i = 0; i < listOfNumbers.size(); i++) {
             if (listOfNumbers.get(i) % 2 != 0) {
-                listOfOddNumbers.add(listOfOddNumbers.size(), listOfNumbers.get(i));
+                listOfOddNumbers.add(listOfNumbers.get(i));
             }
         }
         System.out.println(listOfOddNumbers);
@@ -30,7 +30,7 @@ public class Main {
     //task2
     public static void printEvenSortedNumbersWoutDuplicates(List<Integer> listOfNumbers) {
         List<Integer> listOfEvenNumbers = new ArrayList<>();
-        List<Integer> listOfEvenNumbersWoutDuplicates = new ArrayList<>();
+        Set<Integer> listOfEvenNumbersWoutDuplicates = new TreeSet<>();
 
         for (int i = 0; i < listOfNumbers.size(); i++) {
             if (listOfNumbers.get(i) % 2 == 0) {
@@ -43,7 +43,6 @@ public class Main {
                 listOfEvenNumbersWoutDuplicates.add(listOfEvenNumbers.get(i));
             }
         }
-        listOfEvenNumbersWoutDuplicates.sort(Comparator.naturalOrder());
         System.out.println(listOfEvenNumbersWoutDuplicates);
     }
 
@@ -55,10 +54,7 @@ public class Main {
 
     //task4
     public static void printNumbersOfDuplicateWords(List<String> listOfStrings) {
-        int count = 0;
-        for (int i = 0; i < listOfStrings.size(); i++) {
-            count = Collections.frequency(listOfStrings, listOfStrings.get(i));
-        }
-        System.out.println(count);
+        Set<String> numbersOfUniqueWords = new HashSet<>(listOfStrings);
+        System.out.println(listOfStrings.size() - numbersOfUniqueWords.size());
     }
 }
